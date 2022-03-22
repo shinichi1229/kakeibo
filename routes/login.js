@@ -5,7 +5,11 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('login', { title: 'login' });
+  console.log(req.user);
+  res.render('login', {
+    title: 'login',
+    user: req.user
+  });
 });
 
 router.post('/', passport.authenticate('local',

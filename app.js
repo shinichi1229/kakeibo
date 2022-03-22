@@ -15,6 +15,7 @@ User.sync();
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
+const logoutRouter = require('./routes/logout');
 
 const app = express();
 app.use(helmet());
@@ -33,10 +34,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.serializeUser(function (user, done) {
+  console.log(user);
+
   done(null, user);
 });
 
 passport.deserializeUser(function (obj, done) {
+  console.log(obj);
   done(null, obj);
 });
 
@@ -66,6 +70,7 @@ passport.use(new LocalStrategy(
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
 
 
 
