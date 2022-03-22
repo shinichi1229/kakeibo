@@ -9,5 +9,10 @@ router.get('/', authenticationEnsurer, function (req, res, next) {
   }
   res.send('respond with a resource');
 });
+router.get('/new', authenticationEnsurer, function (req, res, next) {
+  res.render('new', {
+    user: req.user,
+  });
+});
 
 module.exports = router;

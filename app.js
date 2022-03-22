@@ -8,9 +8,13 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 
-let User = require('./models/user');
+const User = require('./models/user');
+const Receipt = require('./models/receipt');
 
-User.sync();
+User.sync().then(() => {
+  Receipt.belongsTo(User, { foreignKey: 'createdby' });
+  Receipt.sync();
+});
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
