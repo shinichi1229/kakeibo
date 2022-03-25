@@ -22,7 +22,7 @@ const Receipt = loader.database.define(
       allowNull: false
     },
     createdby: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.UUID,
       allowNull: false
     },
     memo: {

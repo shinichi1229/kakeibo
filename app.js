@@ -10,16 +10,22 @@ const session = require('express-session');
 
 const User = require('./models/user');
 const Receipt = require('./models/receipt');
+const Shop = require('./models/shop');
 
 User.sync().then(() => {
   Receipt.belongsTo(User, { foreignKey: 'createdby' });
-  Receipt.sync();
+  Receipt.sync().then(() => {
+    Shop.belongsTo(Receipt, { foreignKey: 'shopid' });
+    Shop.belongsTo(Receipt, { foreignKey: 'createdby' });
+    Shop.sync()
+  });
 });
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
+const signupRouter = require('./routes/signup');
 
 const app = express();
 app.use(helmet());
@@ -75,6 +81,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
+app.use('/signup', signupRouter);
 
 
 

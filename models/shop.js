@@ -11,7 +11,7 @@ const Shop = loader.database.define(
       allowNull: false
     },
     userid: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.UUID,
       primaryKey: true,
       allowNull: false
     },

@@ -2,6 +2,8 @@ extends layout
 block content
   .container
     h1 loginPage
+    if comment
+      h3 #{comment}
     if user 
       h2 #{user.email}
     else
