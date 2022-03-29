@@ -3,13 +3,13 @@ block content
   form(method="post", action="/users")
     div.form-group 
       label(for="postingDate") 日付
-      input(type="text" name="postingDate").form-control
+      input(type="date" name="postingDate").form-control
     div.form-group 
       label(for="amount") 金額
       input(type="text" name="amount").form-control
     div.form-group 
-      label(for="shopName") 店名
-      input(type="text" name="shopName").form-control
+      label(for="shopId") 店名
+      input(type="text" name="shopId").form-control
     div.form-group 
       label(for="memo") メモ 
       textarea(name="memo", cols="30", rows="10").form-control 

@@ -8,7 +8,8 @@ const Receipt = loader.database.define(
     receiptid: {
       type: Sequelize.INTEGER,
       primaryKey: true,
-      allowNull: false
+      allowNull: false,
+      autoIncrement: true
     },
     img: {
       type: Sequelize.BLOB,
