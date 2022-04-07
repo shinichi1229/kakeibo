@@ -1,8 +1,48 @@
 body {
+  width: 85vw;
   padding: 50px;
+  margin: 0 auto;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.contents {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.content__date {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+
+.content__amount {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+
+.content__img {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: 60px;
+}
+
+img {
+  /* width: 30%; */
 }

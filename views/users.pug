@@ -2,3 +2,15 @@ extends layout
 
 block content
   h1= title
+  button(onclick="location.href='users/new'") レシートを登録
+  if receipts
+    div.contents
+      each a in receipts
+        div.content
+          div.content__date #{a.formattedPostingdate}
+          div.content__amount #{a.amount}
+          div.content__img
+            if a.imgfilepath
+              img(src=`uploads/images/${a.imgfilepath}`, alt="")
+            else
+              img(src=`uploads/images/no_image.jpg`, alt="")

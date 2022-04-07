@@ -44,13 +44,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.serializeUser(function (user, done) {
-  console.log(user);
-
   done(null, user);
 });
 
 passport.deserializeUser(function (obj, done) {
-  console.log(obj);
   done(null, obj);
 });
 
@@ -61,8 +58,6 @@ passport.use(new LocalStrategy(
     session: true
   },
   function (email, password, done) {
-    console.log(email);
-    console.log(password);
     User.findOne({ where: { email: email } })
       .then(user => {
         if (!user) {

@@ -1,1 +1,3 @@
 node_modules/
+public/uploads/images/*
+!public/uploads/images/no_image.jpg

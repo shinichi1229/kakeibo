@@ -11,8 +11,8 @@ const Receipt = loader.database.define(
       allowNull: false,
       autoIncrement: true
     },
-    img: {
-      type: Sequelize.BLOB,
+    imgfilepath: {
+      type: Sequelize.TEXT,
     },
     amount: {
       type: Sequelize.INTEGER,
